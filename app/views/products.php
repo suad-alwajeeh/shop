@@ -42,9 +42,14 @@
                             <input id="user';?><?php echo $_GLOBALS['U']; ?><?php echo'"  name="user" value="';?><?php echo $_GLOBALS['U']; ?><?php echo '" hidden="hidden">
                         <button class="btn product_btn m-1" id="cart';?><?php echo $row->Product_id; ?><?php echo'" onclick="cart';?><?php echo $row->Product_id;?><?php echo'()"><span class="ion-ios-cart-outline"></span></button>
                         <button class="dcart btn product_btn m-1 "  id="dcart';?><?php echo $row->Product_id; ?><?php echo'" onclick="dcart';?><?php echo $row->Product_id;?><?php echo'()"><span class="ion-ios-cart-outline"></span></button>
-                        <button class=" btn product_btn m-1" id="favorit';?><?php echo $row->Product_id; ?><?php echo'" onclick="favorit';?><?php echo $row->Product_id; ?><?php echo'()" name="favorite"><span class="ion-android-favorite-outline"></span></button>
-                         <button class=" dcart btn product_btn m-1" id="dfavorite';?><?php echo $row->Product_id; ?><?php echo'" onclick="dfavorite';?><?php echo $row->Product_id; ?><?php echo'()" name="favorite"><span class="ion-android-favorite-outline"></span></button>
-                        <button class="btn product_btn m-1" onclick="filter()"  name="filter"><span class="ion-ios-color-filter-outline"></span></button>
+                        <button class=" btn product_btn m-1" id="favorit';?><?php echo $row->Product_id; ?><?php echo'" onclick="favoor';?><?php echo $row->Product_id; ?><?php echo'()" name="favorite"><span class="ion-android-favorite-outline"></span></button>
+                         <button class=" dcart btn product_btn m-1" id="dfavorite';?><?php echo $row->Product_id; ?><?php echo'" onclick="dfavoor';?><?php echo $row->Product_id; ?><?php echo'()" name="dfavorite"><span class="ion-android-favorite-outline"></span></button>
+                     
+                        <button class=" btn product_btn m-1" id="filter';?><?php echo $row->Product_id; ?><?php echo'" onclick="filter';?><?php echo $row->Product_id; ?><?php echo'()" name="filter"><span class="ion-ios-color-filter-outline"></span></button>
+                         <button class=" dcart btn product_btn m-1" id="dfilter';?><?php echo $row->Product_id; ?><?php echo'" onclick="dfilter';?><?php echo $row->Product_id; ?><?php echo'()" name="dfilter"><span class="ion-ios-color-filter-outline"></span></button>
+                       
+                        
+                        
                         <a class="btn product_btn m-1" href="product_details?id='.$row->Product_id.'"><span class="ion-ios-more-outline"></span></a>
                     </h6>                    
                 </div>
@@ -54,7 +59,51 @@
             </div>';?>
                 
     <script>
-
+        
+function filter<?php echo $row->Product_id; ?>(){
+    //  alert('hhhhh');
+            document.getElementById('dfilter<?php echo $row->Product_id;?>').style.display='inline-block';
+       document.getElementById('filter<?php echo $row->Product_id;?>').style.display='none';
+          $.post("add/add_cart/addtofilter",{product_id:$("#id<?php echo $row->Product_id; ?>").val(),user:$("#user<?php echo $_GLOBALS['U']; ?>").val(),qty:$("#qty").val()},function(data){
+              var id='count3';
+     var fi =document.getElementById(id).innerHTML;
+             fi++
+            document.getElementById(id).innerHTML = fi; 
+           });
+      }
+        function dfilter<?php echo $row->Product_id; ?>(){
+    //  alert('hhhhh');
+            document.getElementById('dfilter<?php echo $row->Product_id;?>').style.display='none';
+       document.getElementById('filter<?php echo $row->Product_id;?>').style.display='inline-block';
+          $.post("add/add_cart/deletefromfilter",{product_id:$("#id<?php echo $row->Product_id; ?>").val(),user:$("#user<?php echo $_GLOBALS['U']; ?>").val(),qty:$("#qty").val()},function(data){
+              var id='count3';
+     var fi =document.getElementById(id).innerHTML;
+             fi--
+            document.getElementById(id).innerHTML = fi; 
+           });
+      }
+function favoor<?php echo $row->Product_id; ?>(){
+    //  alert('hhhhh');
+            document.getElementById('dfavorite<?php echo $row->Product_id;?>').style.display='inline-block';
+       document.getElementById('favorit<?php echo $row->Product_id;?>').style.display='none';
+          $.post("add/add_cart/addtofavorite",{product_id:$("#id<?php echo $row->Product_id; ?>").val(),user:$("#user<?php echo $_GLOBALS['U']; ?>").val(),qty:$("#qty").val()},function(data){
+              var id='count2';
+     var fi =document.getElementById(id).innerHTML;
+             fi++
+            document.getElementById(id).innerHTML = fi; 
+           });
+      }
+        function dfavoor<?php echo $row->Product_id; ?>(){
+    //  alert('hhhhh');
+            document.getElementById('dfavorite<?php echo $row->Product_id;?>').style.display='none';
+       document.getElementById('favorit<?php echo $row->Product_id;?>').style.display='inline-block';
+          $.post("add/add_cart/deletefromfavorite",{product_id:$("#id<?php echo $row->Product_id; ?>").val(),user:$("#user<?php echo $_GLOBALS['U']; ?>").val(),qty:$("#qty").val()},function(data){
+              var id='count2';
+     var fi =document.getElementById(id).innerHTML;
+             fi--
+            document.getElementById(id).innerHTML = fi; 
+           });
+      }
      function cart<?php echo $row->Product_id;?>(){
         document.getElementById('cart<?php echo $row->Product_id;?>').style.display='none';
         document.getElementById('dcart<?php echo $row->Product_id;?>').style.display='inline-block';
@@ -78,17 +127,6 @@ $.post("add/add_cart/deletefromcart",{product_id:$("#id<?php echo $row->Product_
     }
       
         
-        function favorit<?php echo $row->Product_id;?>(){
-          document.getElementById('favorite').style.display='none';
-        document.getElementById('dfavorite').style.display='inline-block';
-$.post("add/add_cart/addtofavorite",{product_id:$("#id<?php echo $row->Product_id; ?>").val(),user:$("#user<?php echo $_GLOBALS['U']; ?>").val(),qty:$("#qty").val(),add:$("#favorite").val()},function(data){
-              var id='count2';
-     var fi1 =document.getElementById(id).innerHTML;
-             fi1++
-            document.getElementById(id).innerHTML = fi1; 
-           });
-    
-    }   
     </script>
                 
             <?php    }?>

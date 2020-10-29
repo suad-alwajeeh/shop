@@ -31,7 +31,7 @@ public $compare_product_model;
 
     
     }
-     /* function addtofavorite(){
+      function addtofavorite(){
         print_r($_POST);
              $this->favorite_product_model->add_to_favorite($_POST);    
         }
@@ -40,7 +40,17 @@ public $compare_product_model;
              $this->favorite_product_model->delete_from_favorite($_POST);
 
     
-    }*/
+    }
+    function addtofilter(){
+        print_r($_POST);
+             $this->compare_product_model->add_to_compare($_POST);    
+        }
+     function deletefromfilter(){
+       // print_r($_POST);
+             $this->compare_product_model->delete_from_compare($_POST);
+
+    
+    }
       
 }
 
