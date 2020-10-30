@@ -62,6 +62,7 @@
                                                 class="counter-minus btn"><span
                                                     class="ion-android-remove"></span></button>
  <input id="id<?php echo $item->Product_id; ?>"  name="product_id" value="<?php echo $item->Product_id; ?>" hidden="hidden">
+ <input id="id<?php echo $item->Product_id; ?>"  name="price" value="<?php echo $item->product_price; ?>" hidden="hidden">
 <input id="user<?php echo $_GLOBALS['U']; ?>"  name="user" value="<?php echo $_GLOBALS['U']; ?>" hidden="hidden">
                                             <input class="quantity text-center" min="1" name="qty"
                                                 value="<?php  echo $item->product_main_image;?>" type="number">
@@ -112,7 +113,6 @@ function favoor<?php echo $item->Product_id; ?>(){
            });
       }
         function dfavoor<?php echo $item->Product_id; ?>(){
-    //  alert('hhhhh');
             document.getElementById('dfavorit<?php echo $item->Product_id;?>').style.display='none';
        document.getElementById('favorit<?php echo $item->Product_id;?>').style.display='inline-block';
           $.post("add/add_cart/deletefromfavorite",{product_id:$("#id<?php echo $item->Product_id; ?>").val(),user:$("#user<?php echo $_GLOBALS['U']; ?>").val(),qty:$("#qty").val()},function(data){
@@ -153,7 +153,13 @@ $.post("add/add_cart/deletefromcart",{product_id:$("#id<?php echo $item->Product
                             <li
                                 class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                 الإجمالي
-                                <span>$53.98</span>
+                                <span>    
+                                    <?php
+                   $TOTALE=$data['tootlecost'];
+                  foreach($TOTALE as $T){
+                  echo $T->sumcollll;
+                  }
+                 ?>RY</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                 تكاليف الشحن
@@ -167,7 +173,12 @@ $.post("add/add_cart/deletefromcart",{product_id:$("#id<?php echo $item->Product
                                         <p class="mb-0">(بالإضافة إلى تكاليف الشحن)</p>
                                     </strong>
                                 </div>
-                                <span><strong>$53.98</strong></span>
+                                <span><strong>    <?php
+                   $TOTALE=$data['tootlecost'];
+                  foreach($TOTALE as $T){
+                  echo $T->sumcollll;
+                  }
+                 ?>RY</strong></span>
                             </li>
                         </ul>
 
