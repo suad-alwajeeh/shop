@@ -20,8 +20,8 @@ public $controller;
             'categories'=>$cat_model->getDataWhereOrder(),
              'cartitem'=>$order_model->getOne($this->u),
              'favoriteitem'=>$favorite_product_model->getOnef($this->u),
-             'filteritem'=>$compare_product_model->getOnefilter($this->u)
-            
+             'filteritem'=>$compare_product_model->getOnefilter($this->u),
+            'fetchcart'=>$order_model->fetchcart($this->u)
         );
         //$this->controller->view_object->create_view('home',$homeItems);
         $this->controller->view_object->create_view('cart',$homeItems);

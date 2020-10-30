@@ -70,6 +70,40 @@ $result = $this->db->connect()->prepare($final_query);
         }
   }
     
+ function fetchcart($uid){
+ 
+     
+   $final_query= "select product_id from orders where user_id= $uid";
+$result = $this->db->connect()->prepare($final_query);
+			$result->execute();
+          $count= $result->rowcount();
+        if($count > 0){
+            $arr=array();
+            while($row=$result->fetch()){
+                $arr[]=$row['product_id'];
+                $size9=sizeof($arr);
+                $unique=array_unique($arr);
+                $datar=implode(',' ,$unique);
+              } 
+               $final_query= "select * from products where Product_id in($datar)";
+            return $this->db->executeb($final_query);
+			$result50->execute();
+        return $result50;
+        }
+        elseif($count == 0){
+                 @session_start();
+            if(isset($_SESSION['cart'])){
+            $size1=sizeof($_SESSION['cart']);
+                $uniqe=array_unique($_SESSION['cart']);
+                $data=implode(',' ,$uniqe);
+                 $final_query= "select * from products where Product_id in($data)";
+            return $this->db->executeb($final_query);
+            }
+                 
+            }
+
+        }
+ 
     
     
    
