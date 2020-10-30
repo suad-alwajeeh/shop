@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col-lg-12" style="">
 					<div class="text-center">
-						<h4 style="text-center">
+						<h4 style="text-center text-light" style="color:#fff;">
 متجر الكتروني لبيع المنتجات الالكترونيه
                             </br>
                         </h4>
@@ -44,8 +44,8 @@
                     </div>
 				</div>
             <div class="col-lg-12 foo" style="">
-					<div class="text-center">
-						<p style="text-center ;color:white">
+					<div class="text-center" style="color: #f5f4f9;">
+						<p style="text-center ">
                             @2020حقوق الطبع محفوظة لفريق <span style="color:#ff6500;">webDev</span>          
                         </p>
                     </div>

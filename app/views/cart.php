@@ -25,7 +25,14 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h4 class="mb-4" style="color: #F27523;"> عناصر <span>2</span> </h4>
+                        <h4 class="mb-4" style="color: #F27523;"> عناصر <span>
+                            <?php
+                   $rows=$data['cartitem'];
+                  foreach($rows as $row){
+                  echo $row;
+                  }
+                 ?>
+                            </span> </h4>
                         <div class="row mb-4">
                             <div class="col-md-5 col-lg-3 col-xl-3">
                                 <div class="mb-3 mb-md-0">

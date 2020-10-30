@@ -1,7 +1,6 @@
 <?PHP
 use coreAppNS\Controller;
-//include("app/models/category.php");
-class product_detailsController extends Controller{
+class policyController extends Controller{
 public $controller;
 
 
@@ -13,7 +12,7 @@ public $controller;
         if(isset($_SESSION['uid'])){
          $this->u=$_SESSION['uid'];}else{
          $this->u=0;}
-          $user_model=$this->controller->model_object->create_model('users');
+         $user_model=$this->controller->model_object->create_model('users');
         $order_model=$this->controller->model_object->create_model('order');
         $compare_product_model=$this->controller->model_object->create_model('compare_product');
         $favorite_product_model=$this->controller->model_object->create_model('favorite_product');
@@ -26,9 +25,7 @@ public $controller;
             
         );
 
-        //$this->controller->view_object->create_view('home',$homeItems);
-        $this->controller->view_object->create_view('product_details',$homeItems);
-       // $this->controller->view_object->create_view('admin/categories',$homeItems);
+        $this->controller->view_object->create_view('policy',$homeItems);
     
        }
 

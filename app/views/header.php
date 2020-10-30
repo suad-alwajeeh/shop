@@ -171,7 +171,7 @@ $_GLOBALS['U']=0;
                  ?>
               </span><span class="ion-ios-cart-outline"></span></a>
      
-            <a class="ico" href="#"><span class="counter" id="count2">
+            <a class="ico" href="./cart"><span class="counter" id="count2">
                  <?php
                    $rows1=$data['favoriteitem'];
                   foreach($rows1 as $row1){
@@ -180,7 +180,7 @@ $_GLOBALS['U']=0;
                  ?>
                 </span><span class="ion-android-favorite-outline"></span></a>
    
-          <a class="ico" href="#"><span class="counter" id="count3">
+          <a class="ico" href="./favorite"><span class="counter" id="count3">
               <?php
                    $rows3=$data['filteritem'];
                   foreach($rows3 as $row){
@@ -189,7 +189,7 @@ $_GLOBALS['U']=0;
                  ?>
               </span><span class="ion-ios-color-filter-outline"></span></a>
   
-          <a class="ico" href="#"><span class="ion-ios-search"></span></a>
+          <a class="ico" href="./login"><span class="ion-ios-search"></span></a>
       </li>
     </ul>
   </div>
